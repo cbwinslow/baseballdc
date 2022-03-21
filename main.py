@@ -26,9 +26,9 @@ baseballdc_request = {
 	'dataSource': 'BASEBALL_REFERENCE',
 	'baseballReferenceParams': {
         'scope': 'TEAM',
-        'table': 'Team Batting',
-        'team': 'CHW',
-        'year': '2002'
+        'table': 'Year-by-Year Team Pitching Ranks',
+        'team': 'DET',
+        # 'year': '2021'
 	}
 }
 

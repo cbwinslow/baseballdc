@@ -51,13 +51,13 @@ def construct_table_url(table_config, baseball_reference_params):
     if(table_config['year_required'] == True):
         url_year = '/' + baseball_reference_params['year']
 
-    # todo: pre_shtml
+    url_postfix = table_config['url_postfix']
 
     shtml_postfix = ''
     if(table_config['shtml_postfix_required'] == True):
         shtml_postfix = '.shtml'
 
-    url = url_prefix + url_team + url_year + shtml_postfix
+    url = url_prefix + url_team + url_year + url_postfix + shtml_postfix
 
     print('url: ')
     print(url)
