@@ -3,7 +3,7 @@ BASEBALL_REFERENCE_TEAMS_URL_PREFIX = 'https://www.baseball-reference.com/teams'
 '''
 All Franchise Tables
 '''
-baseball_reference_all_franchise_table_configs = [
+BASEBALL_REFERENCE_ALL_FRANCHISE_TABLE_CONFIGS = [
     {
         'table': 'Active Franchises',
         'table_identifier': 'teams_active',
@@ -42,7 +42,7 @@ baseball_reference_all_franchise_table_configs = [
 '''
 Single Franchise History Tables
 '''
-baseball_reference_franchise_table_configs = [
+BASEBALL_REFERENCE_FRANCHISE_TABLE_CONFIGS = [
     {
         'table': 'Franchise History',
         'table_identifier': 'franchise_years',
@@ -59,7 +59,7 @@ baseball_reference_franchise_table_configs = [
 '''
 Single Franchise w/ Year Tables
 '''
-baseball_reference_team_year_table_configs = [
+BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
     {
         'table': 'Team Batting',
         'table_identifier': 'team_batting',
@@ -80,7 +80,7 @@ baseball_reference_team_year_table_configs = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Rk:Rk']            
     },
     {
         'table': 'Full-Season Roster & Games by Position',
@@ -142,7 +142,7 @@ baseball_reference_team_year_table_configs = [
 '''
 Single Franchise w/ Year Batting Tables
 '''
-baseball_reference_team_year_batting_table_configs = [
+BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
     {
         'table': 'Team Advanced Batting',
         'table_identifier': 'players_advanced_batting',
@@ -247,7 +247,7 @@ baseball_reference_team_year_batting_table_configs = [
 '''
 Single Franchise w/ Year Pitching Tables
 '''
-baseball_reference_team_year_pitching_table_configs = [
+BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
     {
         'table': 'Team Advanced Pitching',
         'table_identifier': 'players_pitching_advanced',
@@ -363,7 +363,7 @@ baseball_reference_team_year_pitching_table_configs = [
 '''
 Single Franchise w/ Year Fielding Tables
 '''
-baseball_reference_team_year_fielding_table_configs = [
+BASEBALL_REFERENCE_TEAM_YEAR_FIELDING_TABLE_CONFIGS = [
     {
         'table': 'Player Standard Fielding--C',
         'table_identifier': 'players_standard_fielding_c',
@@ -600,7 +600,7 @@ baseball_reference_team_year_fielding_table_configs = [
 '''
 Single Franchise w/ Year Fielding Tables
 '''
-baseball_reference_franchise_batting_history_table_configs = [
+BASEBALL_REFERENCE_FRANCHISE_BATTING_HISTORY_TABLE_CONFIGS = [
     {
         'table': 'Year-by-Year Team Batting',
         'table_identifier': 'yby_team_bat',
@@ -636,7 +636,7 @@ baseball_reference_franchise_batting_history_table_configs = [
     },
 ]
 
-baseball_reference_franchise_pitching_history_table_configs = [
+BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS = [
     {
         'table': 'Year-by-Year Team Pitching',
         'table_identifier': 'yby_team_pitch',
@@ -672,13 +672,13 @@ baseball_reference_franchise_pitching_history_table_configs = [
     },
 ]
 
-baseball_reference_team_table_configs = [
-    *baseball_reference_all_franchise_table_configs, 
-    *baseball_reference_franchise_table_configs, 
-    *baseball_reference_team_year_table_configs,
-    *baseball_reference_team_year_batting_table_configs,
-    *baseball_reference_team_year_pitching_table_configs,
-    *baseball_reference_team_year_fielding_table_configs,
-    *baseball_reference_franchise_batting_history_table_configs,
-    *baseball_reference_franchise_pitching_history_table_configs
+BASEBALL_REFERENCE_TEAM_TABLE_CONFIGS = [
+    *BASEBALL_REFERENCE_ALL_FRANCHISE_TABLE_CONFIGS, 
+    *BASEBALL_REFERENCE_FRANCHISE_TABLE_CONFIGS, 
+    *BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS,
+    *BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS,
+    *BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS,
+    *BASEBALL_REFERENCE_TEAM_YEAR_FIELDING_TABLE_CONFIGS,
+    *BASEBALL_REFERENCE_FRANCHISE_BATTING_HISTORY_TABLE_CONFIGS,
+    *BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS
 ]

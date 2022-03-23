@@ -2,25 +2,37 @@ import baseball_reference.team.baseball_reference_team_request_handler as team_r
 import baseball_reference.season.baseball_referenece_season_request_handler as season_request_handler
 import baseball_reference.individual_player.baseball_reference_individual_player_request_handler as individual_player_request_handler
 
-import baseball_reference.baseball_reference_scope as baseball_reference_scope
+import baseball_reference.const.baseball_reference_scope_const as baseball_reference_scope_const
 
 def get_baseball_reference_data(baseballdc_request):
 
-    baseball_reference_params = baseballdc_request.get('baseballReferenceParams');
+    query_params = baseballdc_request['query_params'];
 
-    validate_baseball_reference_params(baseball_reference_params);
+    validate_baseball_reference_params(query_params);
 
-    if(baseball_reference_params.get('scope').upper() == baseball_reference_scope.INDIVIDUAL_PLAYER):
-        df = individual_player_request_handler.get_baseball_reference_individual_player_data(baseball_reference_params)
+    if(query_params['scope'].upper() == baseball_reference_scope_const.INDIVIDUAL_PLAYER):
+        df = individual_player_request_handler.get_baseball_reference_individual_player_data(query_params)
 
-    elif(baseball_reference_params.get('scope').upper() == baseball_reference_scope.TEAM):
-        df = team_request_handler.get_baseball_reference_team_data(baseball_reference_params)
+    elif(query_params['scope'].upper() == baseball_reference_scope_const.TEAM):
+        df = team_request_handler.get_baseball_reference_team_data(query_params)
         
-    elif(baseball_reference_params.get('scope').upper() == baseball_reference_scope.SEASON):
-        df = season_request_handler.get_baseball_reference_season_data(baseball_reference_params)
+    elif(query_params['scope'].upper() == baseball_reference_scope_const.SEASON):
+        df = season_request_handler.get_baseball_reference_season_data(query_params)
 
     return df
 
 def validate_baseball_reference_params(baseball_reference_params):
-    if(baseball_reference_params.get('scope').upper() not in baseball_reference_scope.BASEBALL_REFERENCE_SCOPE_LIST):
-        print('***** Baseball Reference Scope Not Valid *****')
+    if(baseball_reference_params.get('scope').upper() not in baseball_reference_scope_const.BASEBALL_REFERENCE_SCOPE_LIST):
+        raise ValueError(generate_scope_error_message(baseball_reference_params))
+
+
+def generate_scope_error_message(baseball_reference_params): 
+
+    requested_scope = baseball_reference_params['scope']
+    valid_scopes= baseball_reference_scope_const.BASEBALL_REFERENCE_SCOPE_LIST
+
+    error_message_text = 'Value error in the incoming request payload:'
+    scope_error_text = f'The scope requested ("{requested_scope}") was not valid.'
+    valid_scope_text = f'The current list of valid Baseball Reference scopes to choose from for basballdc is: {valid_scopes}'
+
+    return f'{error_message_text}\n\n{scope_error_text}\n{valid_scope_text}\n';

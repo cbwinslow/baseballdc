@@ -1,34 +1,35 @@
-import util.const.data_source as data_source 
-
+import const.data_source_const as data_source_const
 import baseball_reference.baseball_referenence_request_handler as baseball_referenence_request_handler
-
+import request_validation.request_validator as request_validator
+ 
 def get_data(baseballdc_request):
-    # Validate that the incoming data request has a valid data source.
-    validate_get_data_request(baseballdc_request)
 
-    # Route the request to the correct data source handler, and create the requested dataframe
+    # Validate that the incoming request payload has a valid data source.
+    request_validator.validate_incoming_payload(baseballdc_request)
+
+    # Route the request to the correct data source handler, and generate the requested dataframe
     df = route_get_data_request(baseballdc_request)
+
+    ## for now printing, should return df for lib
     print(df)
 
-
-def validate_get_data_request(baseballdc_request):    
-    if(baseballdc_request.get('dataSource').upper() not in data_source.DATA_SOURCE_LIST):
-        print('***** Data Source Not Valid *****')
-
 def route_get_data_request(baseballdc_request):
-    if(baseballdc_request.get('dataSource').upper() == data_source.BASEBALL_REFERENCE.upper()):
+    requested_data_source_trimmed = baseballdc_request['data_source'].strip().upper()
+
+    if(requested_data_source_trimmed == data_source_const.BASEBALL_REFERENCE):
         df = baseball_referenence_request_handler.get_baseball_reference_data(baseballdc_request)
 
     return df
 
+
 # EXAMPLE REQUEST
 baseballdc_request = {
-	'dataSource': 'BASEBALL_REFERENCE',
-	'baseballReferenceParams': {
+	'data_source': 'BASEBALL_REFERENCE',
+	'query_params': {
         'scope': 'TEAM',
-        'table': 'Year-by-Year Team Pitching Ranks',
+        'table': 'Team Pitching',
         'team': 'DET',
-        # 'year': '2021'
+        'year': '2002'
 	}
 }
 
