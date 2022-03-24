@@ -1,8 +1,8 @@
-import baseball_reference.team.baseball_reference_team_request_handler as team_request_handler
-import baseball_reference.season.baseball_referenece_season_request_handler as season_request_handler
-import baseball_reference.individual_player.baseball_reference_individual_player_request_handler as individual_player_request_handler
+from baseball_reference.team import baseball_reference_team_request_handler
+from baseball_reference.season import baseball_referenece_season_request_handler
+from baseball_reference.individual_player import baseball_reference_individual_player_request_handler
 
-import baseball_reference.const.baseball_reference_scope_const as baseball_reference_scope_const
+from baseball_reference.const import baseball_reference_scope_const
 
 def get_baseball_reference_data(baseballdc_request):
 
@@ -11,13 +11,13 @@ def get_baseball_reference_data(baseballdc_request):
     validate_baseball_reference_params(query_params);
 
     if(query_params['scope'].upper() == baseball_reference_scope_const.INDIVIDUAL_PLAYER):
-        df = individual_player_request_handler.get_baseball_reference_individual_player_data(query_params)
+        df = baseball_reference_individual_player_request_handler.get_baseball_reference_individual_player_data(query_params)
 
     elif(query_params['scope'].upper() == baseball_reference_scope_const.TEAM):
-        df = team_request_handler.get_baseball_reference_team_data(query_params)
+        df = baseball_reference_team_request_handler.get_baseball_reference_team_data(query_params)
         
     elif(query_params['scope'].upper() == baseball_reference_scope_const.SEASON):
-        df = season_request_handler.get_baseball_reference_season_data(query_params)
+        df = baseball_referenece_season_request_handler.get_baseball_reference_season_data(query_params)
 
     return df
 

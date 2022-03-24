@@ -1,8 +1,3 @@
-from doctest import DocFileSuite
-
-from importlib_metadata import entry_points
-
-
 def format_df(df, table_config):
     df = remove_duplicate_table_headers(df, table_config)
 
