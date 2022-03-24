@@ -33,4 +33,15 @@ baseballdc_request = {
 	}
 }
 
-get_data(baseballdc_request)
+baseballdc_request_season = {
+	'data_source': 'BASEBALL_REFERENCE',
+	'query_params': {
+        'scope': 'SEASON',
+        'table': 'Team Wins',
+        # 'team': 'DET',
+        # 'year': 2002
+        'league': 'AL'
+	}
+}
+
+get_data(baseballdc_request_season)

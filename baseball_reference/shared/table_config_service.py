@@ -1,13 +1,10 @@
-from baseball_reference.const import baseball_reference_team_tables_const
-
-def get_table_config(query_params):
-    configs = baseball_reference_team_tables_const.BASEBALL_REFERENCE_TEAM_TABLE_CONFIGS
+def get_table_config(query_params, table_configs):
 
     if 'table' not in query_params:
         raise ValueError(generate_no_table_in_params_error_message(query_params))
 
     table_config = None
-    for config in configs:
+    for config in table_configs:
         if(compare_table_names(query_params['table'], config['table'])):
             table_config = config
     
