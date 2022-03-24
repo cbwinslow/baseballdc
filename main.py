@@ -1,6 +1,6 @@
-import const.data_source_const as data_source_const
-import baseball_reference.baseball_referenence_request_handler as baseball_referenence_request_handler
-import request_validation.request_validator as request_validator
+from const import data_source_const
+from baseball_reference import baseball_referenence_request_handler
+from request_validation import request_validator
  
 def get_data(baseballdc_request):
 

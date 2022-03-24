@@ -1,4 +1,4 @@
-import baseball_reference.const.baseball_reference_team_tables_const as baseball_reference_team_tables_const
+from baseball_reference.const import baseball_reference_team_tables_const
 
 def get_table_config(query_params):
     configs = baseball_reference_team_tables_const.BASEBALL_REFERENCE_TEAM_TABLE_CONFIGS
