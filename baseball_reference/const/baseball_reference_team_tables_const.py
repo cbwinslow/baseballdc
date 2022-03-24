@@ -13,7 +13,7 @@ BASEBALL_REFERENCE_ALL_FRANCHISE_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '',
         'shtml_postfix_required': False,
-        'remove_rows_on': ['rk:rk', 'rk:Nan']     
+        'remove_rows_on': ['Rk:Rk']     
     },
     {
         'table': 'Inactive Franchises',
@@ -24,7 +24,7 @@ BASEBALL_REFERENCE_ALL_FRANCHISE_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '',
         'shtml_postfix_required': False,   
-        'remove_rows_on': ['rk:rk', 'rk:Nan']            
+        'remove_rows_on': ['Rk:Rk']     
     },
     {
         'table': 'National Association Franchises',
@@ -34,8 +34,8 @@ BASEBALL_REFERENCE_ALL_FRANCHISE_TABLE_CONFIGS = [
         'team_required': False,
         'year_required': False,
         'url_postfix': '',
-        'shtml_postfix_required': False,   
-        'remove_rows_on': ['rk:Nan']            
+        'shtml_postfix_required': False,
+        'remove_rows_on': []     
     }
 ]
 
@@ -52,7 +52,7 @@ BASEBALL_REFERENCE_FRANCHISE_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '',
         'shtml_postfix_required': False,   
-        'remove_rows_on': ['Year:Year']            
+        'remove_rows_on': ['Year:Year'] 
     }
 ]
 
@@ -69,7 +69,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Rk:Rk']     
     },
     {
         'table': 'Team Pitching',
@@ -80,7 +80,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': ['Rk:Rk']            
+        'remove_rows_on': ['Rk:Rk']     
     },
     {
         'table': 'Full-Season Roster & Games by Position',
@@ -91,7 +91,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Coaching Staff',
@@ -102,7 +102,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Fielding Totals',
@@ -113,7 +113,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },    
     {
         'table': 'Team Player Value--Batters',
@@ -124,7 +124,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Player Value--Pitchers',
@@ -135,7 +135,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     }
 ]
 
@@ -163,7 +163,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Batting Ratios*',
@@ -174,7 +174,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Win Probability*',
@@ -185,7 +185,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     }, 
     {
         'table': 'Team Baserunning/Misc*',
@@ -196,7 +196,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     }, 
     {
         'table': 'Team PH/HR/Situ Hitting*',
@@ -218,7 +218,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Neutralized Batting',
@@ -229,7 +229,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Cumulative Batting',
@@ -240,7 +240,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_BATTING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-batting',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     }    
 ]
 
@@ -268,7 +268,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Batting Against*',
@@ -279,7 +279,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Win Probability*',
@@ -290,7 +290,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Starting Pitching*',
@@ -301,7 +301,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Relief Pitching*',
@@ -312,7 +312,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Baserunning/Situ*',
@@ -323,7 +323,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Pitching Pitches*',
@@ -334,7 +334,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },
     {
         'table': 'Team Neutralized Pitching',
@@ -345,7 +345,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },    
     {
         'table': 'Team Cumulative Pitching',
@@ -356,7 +356,7 @@ BASEBALL_REFERENCE_TEAM_YEAR_PITCHING_TABLE_CONFIGS = [
         'year_required': True,
         'url_postfix': '-pitching',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Name:Name']            
     },   
 ]
 
@@ -610,7 +610,7 @@ BASEBALL_REFERENCE_FRANCHISE_BATTING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/batteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']     
     },
     {
         'table': 'Year-by-Year Team Batting per Game',
@@ -621,7 +621,7 @@ BASEBALL_REFERENCE_FRANCHISE_BATTING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/batteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']     
     },
     {
         'table': 'Year-by-Year Team Batting Ranks',
@@ -632,10 +632,13 @@ BASEBALL_REFERENCE_FRANCHISE_BATTING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/batteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']     
     },
 ]
 
+'''
+Single Franchise w/ Year Pitching Tables
+'''
 BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS = [
     {
         'table': 'Year-by-Year Team Pitching',
@@ -646,7 +649,7 @@ BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/pitchteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']            
     },
     {
         'table': 'Year-by-Year Team Pitching per Game',
@@ -657,7 +660,7 @@ BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/pitchteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']            
     },
     {
         'table': 'Year-by-Year Team Pitching Ranks',
@@ -668,7 +671,7 @@ BASEBALL_REFERENCE_FRANCHISE_PITCHING_HISTORY_TABLE_CONFIGS = [
         'year_required': False,
         'url_postfix': '/pitchteam',
         'shtml_postfix_required': True,   
-        'remove_rows_on': []            
+        'remove_rows_on': ['Year:Year']            
     },
 ]
 

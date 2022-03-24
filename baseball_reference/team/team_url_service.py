@@ -16,7 +16,7 @@ def construct_url(table_config, query_params):
         if 'year' not in query_params:
             raise ValueError(generate_year_required_error_message(query_params))
 
-        url_year = '/' + query_params['year']
+        url_year = '/' + str(query_params['year'])
 
     url_postfix = table_config['url_postfix']
 

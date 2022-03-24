@@ -27,9 +27,9 @@ baseballdc_request = {
 	'data_source': 'BASEBALL_REFERENCE',
 	'query_params': {
         'scope': 'TEAM',
-        'table': 'Team Pitching',
+        'table': 'Year-by-Year Team Pitching Ranks',
         'team': 'DET',
-        'year': '2002'
+        'year': 2002
 	}
 }
 
