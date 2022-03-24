@@ -37,10 +37,10 @@ baseballdc_request_season = {
 	'data_source': 'BASEBALL_REFERENCE',
 	'query_params': {
         'scope': 'SEASON',
-        'table': 'Team Wins',
+        'table': 'Player Standard Pitching',
         # 'team': 'DET',
-        # 'year': 2002
-        'league': 'AL'
+        'year': 2003,
+        'league': 'NL'
 	}
 }
 
