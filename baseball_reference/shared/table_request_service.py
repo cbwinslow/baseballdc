@@ -7,9 +7,9 @@ def get_table(table_config, url, query_params):
     })
 
     table = None
-    if(table_config['table_commented'] == True):
-        table = get_commented_table(response, table_config)
-    else: 
+
+    table = get_commented_table(response, table_config)
+    if(table == None):
         table = get_uncommented_table(response, table_config)
     
     if(table == None):
@@ -33,17 +33,20 @@ def get_commented_table(response, table_config):
 
     id_plus_table_name = "".join(['id="', table_config['table_identifier'], '"'])
 
+    commented_table = None;
     for comment in soup.findAll(text=lambda text:isinstance(text, Comment)):
 
         if(id_plus_table_name in comment):
             commented_table = comment
-            #TODO: error handling for else
 
-    soup = BeautifulSoup(commented_table , 'html5lib')
+    if(commented_table != None):
+        soup = BeautifulSoup(commented_table , 'html5lib')
 
-    table = soup.find('table', {'id': table_config['table_identifier']})
+        table = soup.find('table', {'id': table_config['table_identifier']})
 
-    return table
+        return table
+    else:
+        return None
 
 def generate_table_error_message(query_params): 
 
