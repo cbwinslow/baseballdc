@@ -1,62 +1,19 @@
-def get_baseball_reference_season_data(baseball_reference_params):
-
-    print('in get_baseball_reference_season_data')
-
-
-
-'''
-import requests
-from bs4 import BeautifulSoup
 import pandas as pd
+from baseball_reference.const import baseball_reference_season_tables_const
+from baseball_reference.shared import table_config_service, table_format_service, table_request_service
+from baseball_reference.season import season_url_service
 
+def get_baseball_reference_season_data(query_params):
 
-Team Table Names
+    table_configs = baseball_reference_season_tables_const.BASEBALL_REFERENCE_SEASON_TABLE_CONFIGS
+    table_config = table_config_service.get_table_config(query_params, table_configs)
 
-https://www.baseball-reference.com/teams/DET/2004.shtml
-1. team_batting (Team batting)
-2. team_pitching (Team Pitching)
+    url = season_url_service.construct_url(table_config, query_params)
 
+    table = table_request_service.get_table(table_config, url, query_params)
 
-https://www.baseball-reference.com/teams/DET/2004-roster.shtml
-3. appearances (Full Season Roster & Games by Position)
-4. coaches (Coaching Staff)
+    df = pd.read_html(str(table))[0]
 
+    formatted_df = table_format_service.format_df(df, table_config)
 
-https://www.baseball-reference.com/teams/DET/2004-fielding.shtml
-5. standard_fielding (Team Fielding Totals) ERROR
-
-
-
-6. players_value_batting (Team Player Value--Batters) ERROR
-7. players_value_pitching (Team Player Value--Pitchers)
-
-
-TEAM = 'DET'
-YEAR = '1972'
-# URL = 'https://www.baseball-reference.com/teams/OAK/1992.shtml'
-
-URL = "".join(['https://www.baseball-reference.com/teams/', TEAM, '/', YEAR, '.shtml'])
-TABLE_NAME = 'team_batting'
-
-r = requests.get(URL, headers = {
-    'accept-language':'en-US,en;q=0.8',
-})
-
-soup = BeautifulSoup(r.content, 'html5lib')
-
-team_table = soup.find('table', {'id': TABLE_NAME})
-
-df = pd.read_html(str(team_table))[0]
-
-# Remove rows where Rk is Rk
-df = df.drop(df[df['Rk'] == 'Rk'].index)
-
-# Remove rows where Rk is NaN (should make this optional in config)
-df = df.drop(df[pd.isna(df['Rk'])].index)
-
-# Remove name for roster tables
-# df = df.drop(df[df['Name'] == 'Name'].index)
-
-print(df)
-
-'''
+    return formatted_df

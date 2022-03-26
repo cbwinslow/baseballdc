@@ -33,4 +33,36 @@ baseballdc_request = {
 	}
 }
 
-get_data(baseballdc_request)
+# baseballdc_request_season = {
+# 	'data_source': 'BASEBALL_REFERENCE',
+# 	'query_params': {
+#         'scope': 'SEASON',
+#         'table': 'Player Standard Pitching',
+#         # 'team': 'DET',
+#         'year': 2003,
+#         'league': 'NL'
+# 	}
+# }
+
+baseballdc_request_player = {
+	'data_source': 'BASEBALL_REFERENCE',
+	'query_params': {
+        'scope': 'INDIVIDUAL_PLAYER',
+        'table': 'Standard Batting',
+        'first_name': 'Miguel',
+        'last_name': "Cabrera"
+	}
+}
+
+# baseballdc_request_player = {
+# 	'data_source': 'BASEBALL_REFERENCE',
+# 	'query_params': {
+#         'scope': 'INDIVIDUAL_PLAYER',
+#         'table': 'Standard Batting',
+#         'first_name': 'Justin',
+#         'last_name': 'Verlander'
+# 	}
+# }
+
+
+get_data(baseballdc_request_player)
