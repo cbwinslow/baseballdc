@@ -22,16 +22,16 @@ def route_get_data_request(baseballdc_request):
     return df
 
 
-# EXAMPLE REQUEST
-baseballdc_request = {
-	'data_source': 'BASEBALL_REFERENCE',
-	'query_params': {
-        'scope': 'TEAM',
-        'table': 'Year-by-Year Team Pitching Ranks',
-        'team': 'DET',
-        'year': 2002
-	}
-}
+# # EXAMPLE REQUEST
+# baseballdc_request = {
+# 	'data_source': 'BASEBALL_REFERENCE',
+# 	'query_params': {
+#         'scope': 'TEAM',
+#         'table': 'Year-by-Year Team Pitching Ranks',
+#         'team': 'DET',
+#         'year': 2002
+# 	}
+# }
 
 # baseballdc_request_season = {
 # 	'data_source': 'BASEBALL_REFERENCE',
@@ -44,15 +44,15 @@ baseballdc_request = {
 # 	}
 # }
 
-baseballdc_request_player = {
-	'data_source': 'BASEBALL_REFERENCE',
-	'query_params': {
-        'scope': 'INDIVIDUAL_PLAYER',
-        'table': 'Standard Batting',
-        'first_name': 'Miguel',
-        'last_name': "Cabrera"
-	}
-}
+# baseballdc_request_player = {
+# 	'data_source': 'BASEBALL_REFERENCE',
+# 	'query_params': {
+#         'scope': 'INDIVIDUAL_PLAYER',
+#         'table': 'Standard Batting',
+#         'first_name': 'Miguel',
+#         'last_name': "Cabrera"
+# 	}
+# }
 
 # baseballdc_request_player = {
 # 	'data_source': 'BASEBALL_REFERENCE',
@@ -65,4 +65,4 @@ baseballdc_request_player = {
 # }
 
 
-get_data(baseballdc_request_player)
+# get_data(baseballdc_request_player)
