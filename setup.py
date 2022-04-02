@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
  
 setup(
   name='baseballdc',
-  version='0.0.5',
+  version='0.0.6',
   description='Baseball Data Center',
   author='Joe Smith',
   author_email='joesmi9.sde@gmail.com',
