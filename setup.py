@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
  
 setup(
   name='baseballdc',
-  version='0.0.2',
+  version='0.0.5',
   description='Baseball Data Center',
   author='Joe Smith',
   author_email='joesmi9.sde@gmail.com',
   url='https://github.com/joesmi9/baseballdc',
   license='MIT', 
   keywords=['baseball', 'baseball analytics', 'baseball reference'],
-  packages=find_packages(),
+  packages=['baseballdc'],
   install_requires=[''],
   classifiers=[
     'Development Status :: 2 - Pre-Alpha',

@@ -54,15 +54,15 @@ def route_get_data_request(baseballdc_request):
 # 	}
 # }
 
-# baseballdc_request_player = {
-# 	'data_source': 'BASEBALL_REFERENCE',
-# 	'query_params': {
-#         'scope': 'INDIVIDUAL_PLAYER',
-#         'table': 'Standard Batting',
-#         'first_name': 'Justin',
-#         'last_name': 'Verlander'
-# 	}
-# }
+baseballdc_request_player = {
+	'data_source': 'BASEBALL_REFERENCE',
+	'query_params': {
+        'scope': 'INDIVIDUAL_PLAYER',
+        'table': 'Standard Batting',
+        'first_name': 'Justin',
+        'last_name': 'Verlander'
+	}
+}
 
 
-# get_data(baseballdc_request_player)
+get_data(baseballdc_request_player)
