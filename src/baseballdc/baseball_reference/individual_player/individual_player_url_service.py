@@ -1,4 +1,4 @@
-from baseball_reference.individual_player import individual_player_identifier_service
+from .individual_player_identifier_service import get_player_href
 
 def construct_url(table_config, query_params):
 
@@ -13,7 +13,7 @@ def construct_url(table_config, query_params):
     if len(first_name) == 0 or len(first_name) == 0 : 
         raise ValueError(generate_name_required_error_message(query_params))
 
-    player_href = individual_player_identifier_service.get_player_href(first_name, last_name)
+    player_href = get_player_href(first_name, last_name)
 
     url = f'{url_prefix}{player_href}'
 

@@ -1,7 +1,7 @@
 import pandas as pd
-from baseball_reference.const import baseball_reference_individual_player_tables_const
-from baseball_reference.shared import table_config_service, table_format_service, table_request_service
-from baseball_reference.individual_player import individual_player_url_service
+from ..const import baseball_reference_individual_player_tables_const
+from ..shared import table_config_service, table_format_service, table_request_service
+from ..individual_player import individual_player_url_service
 
 def get_baseball_reference_individual_player_data(query_params):
 

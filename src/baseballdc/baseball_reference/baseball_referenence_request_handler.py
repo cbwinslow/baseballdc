@@ -1,8 +1,8 @@
-from baseball_reference.team import baseball_reference_team_request_handler
-from baseball_reference.season import baseball_referenece_season_request_handler
-from baseball_reference.individual_player import baseball_reference_individual_player_request_handler
+from .team import baseball_reference_team_request_handler
+from .season import baseball_referenece_season_request_handler
+from .individual_player import baseball_reference_individual_player_request_handler
 
-from baseball_reference.const import baseball_reference_scope_const
+from .const import baseball_reference_scope_const
 
 def get_baseball_reference_data(baseballdc_request):
 
