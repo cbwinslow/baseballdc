@@ -1,15 +1,16 @@
-from setuptools import setup, find_packages
+import setuptools
  
-setup(
+setuptools.setup(
   name='baseballdc',
-  version='0.0.6',
+  version='0.0.20',
   description='Baseball Data Center',
   author='Joe Smith',
   author_email='joesmi9.sde@gmail.com',
   url='https://github.com/joesmi9/baseballdc',
   license='MIT', 
   keywords=['baseball', 'baseball analytics', 'baseball reference'],
-  packages=['baseballdc'],
+  package_dir={"": "src"},
+  packages=setuptools.find_packages(where="src"),
   install_requires=[''],
   classifiers=[
     'Development Status :: 2 - Pre-Alpha',

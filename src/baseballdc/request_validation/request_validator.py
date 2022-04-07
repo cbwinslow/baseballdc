@@ -1,4 +1,4 @@
-import const.data_source_const as data_source_const
+from ..const import data_source_const
 
 def validate_incoming_payload(baseballdc_request):
 

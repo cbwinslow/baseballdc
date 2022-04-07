@@ -1,7 +1,7 @@
 import pandas as pd
-from baseball_reference.const import baseball_reference_season_tables_const
-from baseball_reference.shared import table_config_service, table_format_service, table_request_service
-from baseball_reference.season import season_url_service
+from ..const import baseball_reference_season_tables_const
+from ..shared import table_config_service, table_format_service, table_request_service
+from ..season import season_url_service
 
 def get_baseball_reference_season_data(query_params):
 
