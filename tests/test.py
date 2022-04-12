@@ -1,7 +1,6 @@
 import sys
 import os
 
-from numpy import equal
 sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src")
 
 import baseballdc
