@@ -92,13 +92,11 @@ class TestBaseballReferenceIndividualPlayer(unittest.TestCase):
         }
 
         df = baseballdc.get_data(baseballdc_request)
-
         df_columns = list(df.columns.values)
 
         expected_columns = ['Year', 'Age', 'Tm', 'Pos', 'Lg', 'G', 'GS', 'CG', 'Inn', 'Ch', 'PO', 'A', 'E', 'DP', 'Fld%', 
                             'Rtot', 'Rdrs', 'Rtot/yr', 'Rdrs/yr', 'RF/9', 'RF/G', 'lgFld%', 'lgRF9', 'lgRFG', 'SB', 'CS', 
                             'CS%', 'lgCS%', 'PO.1', 'Awards']
-
         self.assertEqual(df_columns, expected_columns)
 
     def test_appearances(self):
@@ -114,14 +112,10 @@ class TestBaseballReferenceIndividualPlayer(unittest.TestCase):
         }
 
         df = baseballdc.get_data(baseballdc_request)
-
         df_columns = list(df.columns.values)
-
-        print(df_columns)
 
         expected_columns = ['Year', 'Age', 'Tm', 'Lg', 'G', 'GS', 'Batting', 'Defense', 'P', 'C', '1B', '2B', '3B', 'SS', 'LF', 
                             'CF', 'RF', 'OF', 'DH', 'PH', 'PR']
-
         self.assertEqual(df_columns, expected_columns)
 
 if __name__ == '__main__':
