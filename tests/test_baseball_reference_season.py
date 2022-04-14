@@ -215,6 +215,260 @@ class TestBaseballReferenceIndividualPlayer(unittest.TestCase):
                             'CF', 'RF', 'OF (All)', 'DH', 'PH']
         self.assertEqual(df_columns, expected_columns)  
 
+    def test_american_league_east_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'American League East Detailed Standings',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 
+                            'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 'Home', 'Road', 'ExInn', '1Run', 'vRHP', 
+                            'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)  
+
+    def test_american_league_central_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'American League Central Detailed Standings',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 
+                            'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 'Home', 'Road', 'ExInn', '1Run', 'vRHP', 
+                            'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)  
+
+    def test_american_league_west_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'American League West Detailed Standings',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 
+                            'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 'Home', 'Road', 'ExInn', '1Run', 'vRHP', 
+                            'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)  
+
+
+    def test_american_league_wild_card_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'American League Wild Card Detailed Standings',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 
+                            'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 'Home', 'Road', 'ExInn', '1Run', 'vRHP', 
+                            'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)      
+
+    def test_head_to_head_records(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Head-To-Head Records',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Tm', 'BAL', 'BOS', 'NYY', 'TBR', 'TOR', 'CHW', 'CLE', 'DET', 'KCR', 'MIN', 'HOU', 'LAA', 
+                            'OAK', 'SEA', 'TEX', 'Interleague Records']
+        self.assertEqual(df_columns, expected_columns)        
+
+    def test_head_to_head_run_scoring(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Head to Head Run Scoring',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Tm', 'BAL', 'BOS', 'NYY', 'TBR', 'TOR', 'CHW', 'CLE', 'DET', 'KCR', 'MIN', 'HOU', 'LAA', 
+                            'OAK', 'SEA', 'TEX', 'Interleague Records']
+        self.assertEqual(df_columns, expected_columns)        
+
+    def test_national_league_east_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'National League East Detailed Standings',
+                'league': 'NL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 
+                            'Home', 'Road', 'ExInn', '1Run', 'vRHP', 'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)        
+
+    def test_national_league_central_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'National League Central Detailed Standings',
+                'league': 'NL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 
+                            'Home', 'Road', 'ExInn', '1Run', 'vRHP', 'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)  
+
+    def test_national_league_west_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'National League West Detailed Standings',
+                'league': 'NL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 
+                            'Home', 'Road', 'ExInn', '1Run', 'vRHP', 'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)  
+
+
+    def test_national_league_wild_card_detailed_standings(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'National League Wild Card Detailed Standings',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Tm', 'W', 'L', 'W-L%', 'GB', 'GBsum', 'R', 'RA', 'Rdiff', 'SOS', 'SRS', 'pythWL', 
+                            'Luck', 'vEast', 'vCent', 'vWest', 'Inter', 'Home', 'Road', 'ExInn', '1Run', 'vRHP', 
+                            'vLHP', '≥.500', '<.500']
+        self.assertEqual(df_columns, expected_columns)              
+
+
+    def test_player_standard_fielding(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Player Standard Fielding',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Name', 'Age', 'Tm', 'G', 'GS', 'CG', 'Inn', 'Ch', 'PO', 'A', 'E', 'DP', 'Fld%', 
+                            'Rtot', 'Rtot/yr', 'Rdrs', 'Rdrs/yr', 'Rgood', 'RF/9', 'RF/G', 'Pos\xa0Summary']
+        self.assertEqual(df_columns, expected_columns)   
+
+    def test_player_standard_batting(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Player Standard Batting',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Name', 'Age', 'Tm', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 
+                            'OBP', 'SLG', 'OPS', 'OPS+', 'TB', 'GDP', 'HBP', 'SH', 'SF', 'IBB', 'Pos\xa0Summary']
+        self.assertEqual(df_columns, expected_columns)   
+
+    def test_player_standard_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Player Standard Pitching',
+                'league': 'AL',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Rk', 'Name', 'Age', 'Tm', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 
+                            'BF', 'ERA+', 'FIP', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/W']
+        self.assertEqual(df_columns, expected_columns)  
+
 if __name__ == '__main__':
         unittest.main()
-
