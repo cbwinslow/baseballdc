@@ -373,7 +373,6 @@ class TestBaseballReferenceTeam(unittest.TestCase):
         expected_columns = ['Name', 'Age', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', 'RC', 'Gact']
         self.assertEqual(df_columns, expected_columns)
 
-
     def test_team_cumulative_batting(self):
 
         baseballdc_request = {
@@ -391,6 +390,208 @@ class TestBaseballReferenceTeam(unittest.TestCase):
 
         expected_columns = ['Name', 'Age', 'Yrs', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', 'OPS+',
                             'TB', 'GDP', 'HBP', 'SH', 'SF', 'IBB']
+        self.assertEqual(df_columns, expected_columns)
+
+    def test_team_advanced_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Advanced Pitching',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = [('Unnamed: 0_level_0', 'Name'), ('Unnamed: 1_level_0', 'Age'), ('Batting Against', 'BA'), ('Batting Against', 'OBP'), 
+                            ('Batting Against', 'SLG'), ('Batting Against', 'OPS'), ('Batting Against', 'BAbip'), ('Pitching Ratios', 'HR%'), 
+                            ('Pitching Ratios', 'SO%'), ('Pitching Ratios', 'BB%'), ('Batted Ball', 'EV'), ('Batted Ball', 'HardH%'), ('Batted Ball', 'LD%'), 
+                            ('Batted Ball', 'GB%'), ('Batted Ball', 'FB%'), ('Batted Ball', 'GB/FB'), ('Win Probability', 'WPA'), ('Win Probability', 'cWPA'), 
+                            ('Win Probability', 'RE24')]
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_pitching_ratios(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Pitching Ratios*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'Ptn%', 'HR%', 'SO%', 'BB%', 'SO-BB%', 'XBH%', 'X/H%', 'GB/FB', 'GO/AO', 'IP%', 'LD%', 'HR/FB', 'IF/FB', 'Opp', 'DP', '%', 'PAu']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_batting_against(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Batting Against*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'PAu', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 
+                            'SLG', 'OPS', 'BAbip', 'TB', 'GDP', 'HBP', 'SH', 'SF', 'IBB', 'ROE']
+        self.assertEqual(df_columns, expected_columns)
+
+    def test_team_win_probability(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Win Probability*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns =['Name', 'Age', 'IP', 'PtchR', 'PtchW', 'Plays', 'WPA', 'WPA+', 'WPA-', 'aLI', 'WPA/LI', 'Clutch', 'cWPA', 'cWPA+', 
+                           'cWPA-', 'acLI', 'cClutch', 'RE24', 'REW', 'boLI', 'RE24/boLI', 'LevHi', 'LevMd', 'LevLo']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_standard_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Starting Pitching*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'G', 'GS', 'Wgs', 'Lgs', 'ND', 'Wchp', 'Ltuf', 'Wtm', 'Ltm', 'tmW-L%', 'Wlst', 'Lsv', 'CG', 
+                            'SHO', 'QS', 'QS%', 'GmScA', 'Best', 'Wrst', 'BQR', 'BQS', 'sDR', 'lDR', 'RS/GS', 'RS/IP', 'IP/GS', 'Pit/GS', '<80', 
+                            '80-99', '100-119', '≥120', 'Max']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_relief_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Relief Pitching*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'G', 'GR', 'GF', 'Wgr', 'Lgr', 'SVOpp', 'SV', 'BSv', 'SV%', 'SVSit', 'Hold', 'IR', 'IS', 'IS%', 
+                            '1stIP', 'aLI', 'LevHi', 'LevMd', 'LevLo', 'Ahd', 'Tie', 'Bhd', 'Runr', 'Empt', '>3o', '<3o', 'IPmult', '0DR', 'Out/GR', 
+                            'Pit/GR']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_baserunning_situ(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Baserunning/Situ*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'PA', 'H', 'Inf', 'Bnt', 'All', 'GS', 'GSo', 'vRH', 'vLH', 'Hm', 'Rd', '<2,3B', 'Scr', 'SO', 
+                            '%', 'ROE', 'WP', 'PB', 'SBO', 'SB', 'CS', 'SB%', 'SB2', 'CS2', 'SB3', 'CS3', 'SBH', 'CSH', 'PO', 'PCS', 'BT', 'PAu']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_pitching_pitches(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Pitching Pitches*',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'IP', 'PA', 'Pit', 'Pit/PA', 'Str', 'Str%', 'L/Str', 'S/Str', 'F/Str', 'I/Str', 'AS/Str', 'I/Bll', 
+                            'AS/Pit', 'Con', '1st%', '30%', '30c', '30s', '02%', '02c', '02s', '02h', 'L/SO', 'S/SO', 'L/SO%', '3pK', '4pW', 
+                            'PAu', 'Pitu', 'Stru']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_neutralized_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Neutralized Pitching',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'W', 'L', 'W-L%', 'ERA', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'SO', 'HBP', 'WHIP', 'H9', 'BB9', 'SO9', 'SO/W', 'HR9', 'Unnamed: 20', 'Gact']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_team_cumulative_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Cumulative Pitching',
+                'team': 'DET',
+                'year': '2021'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Name', 'Age', 'Yrs', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', 
+                            'ERA+', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/W', 'ERA+.1']
         self.assertEqual(df_columns, expected_columns)
 
 if __name__ == '__main__':
