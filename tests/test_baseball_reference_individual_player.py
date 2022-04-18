@@ -172,6 +172,43 @@ class TestBaseballReferenceIndividualPlayer(unittest.TestCase):
         expected_columns = [('Unnamed: 0_level_0', 'Year'), ('Unnamed: 1_level_0', 'Age'), ('Unnamed: 2_level_0', 'Tm'), ('Unnamed: 3_level_0', 'Lg'), ('Unnamed: 4_level_0', 'IP'), ('Batting Against', 'BA'), ('Batting Against', 'OBP'), ('Batting Against', 'SLG'), ('Batting Against', 'OPS'), ('Batting Against', 'BAbip'), ('Pitching Ratios', 'HR%'), ('Pitching Ratios', 'SO%'), ('Pitching Ratios', 'BB%'), ('Batted Ball', 'EV'), ('Batted Ball', 'HardH%'), ('Batted Ball', 'LD%'), ('Batted Ball', 'GB%'), ('Batted Ball', 'FB%'), ('Batted Ball', 'GB/FB'), ('Win Probability', 'WPA'), ('Win Probability', 'cWPA'), ('Win Probability', 'RE24')]
         self.assertEqual(df_columns, expected_columns)
 
+    def test_postseason_pitching(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'INDIVIDUAL_PLAYER',
+                'table': 'Postseason Pitching',
+                'first_name': 'Madison',
+                'last_name': 'Bumgarner'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Year', 'Age', 'Tm', 'Lg', 'Series', 'Rslt', 'Opp', 'W', 'L', 'W-L%', 'ERA', 'G', 'GS', 'GF', 'CG', 'SHO', 'SV', 'IP', 'H', 'R', 'ER', 'HR', 'BB', 'IBB', 'SO', 'HBP', 'BK', 'WP', 'BF', 'WHIP', 'H9', 'HR9', 'BB9', 'SO9', 'SO/W', 'WPA', 'cWPA']
+        self.assertEqual(df_columns, expected_columns)
+
+
+    def test_postseason_batting(self):
+
+        baseballdc_request = {
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'INDIVIDUAL_PLAYER',
+                'table': 'Postseason Batting',
+                'first_name': 'David',
+                'last_name': 'Ortiz'
+            }
+        }
+
+        df = baseballdc.get_data(baseballdc_request)
+        df_columns = list(df.columns.values)
+
+        expected_columns = ['Year', 'Age', 'Tm', 'Lg', 'Series', 'Opp', 'Rslt', 'G', 'PA', 'AB', 'R', 'H', '2B', '3B', 'HR', 'RBI', 'SB', 'CS', 'BB', 'SO', 'BA', 'OBP', 'SLG', 'OPS', 'TB', 'GDP', 'HBP', 'SH', 'SF', 'IBB', 'WPA', 'cWPA']
+        self.assertEqual(df_columns, expected_columns)
+
 if __name__ == '__main__':
         unittest.main()
 

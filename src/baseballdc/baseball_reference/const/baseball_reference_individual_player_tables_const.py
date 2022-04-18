@@ -81,7 +81,29 @@ BASEBALL_REFERENCE_PLAYER_TABLE_CONFIGS = [
         'shtml_postfix_required': True,
         'remove_rows_on': []     
     },
+    {
+        'table': 'Postseason Pitching',
+        'table_identifier': 'pitching_postseason',
+        'url_prefix': BASEBALL_REFERENCE_INDIVIDUAL_PLAYER_URL_PREFIX,
+        'first_name_required': True,
+        'last_name_required': True,
+        'url_postfix': '',
+        'shtml_postfix_required': True,
+        'remove_rows_on': []     
+    },
+    {
+        'table': 'Postseason Batting',
+        'table_identifier': 'batting_postseason',
+        'url_prefix': BASEBALL_REFERENCE_INDIVIDUAL_PLAYER_URL_PREFIX,
+        'first_name_required': True,
+        'last_name_required': True,
+        'url_postfix': '',
+        'shtml_postfix_required': True,
+        'remove_rows_on': []     
+    },
 ]
+
+
 
 BASEBALL_REFERENCE_INDIVIDUAL_PLAYER_TABLE_CONFIGS = [
     *BASEBALL_REFERENCE_PLAYER_TABLE_CONFIGS
