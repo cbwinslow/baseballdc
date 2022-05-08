@@ -15,12 +15,10 @@ pip install baseballdc
 
 ### How to use baseballdc:
 
-baseballdc currently scrapes data from Baseball Reference. To pull a Baseball Reference data table into your project, you will need to pass a JSON object into the ___ function, specifying which table you are requesting. If you are unfamiliar with JSON, here is a brief overview. (https://www.w3schools.com/js/js_json_intro.asp)
+baseballdc currently scrapes data from Baseball Reference. To pull a Baseball Reference data table into your project, you will need to pass a  object into the ___ function, specifying which table you are requesting.
 
 
-The format of the required json object is: 
-
-DON’T SAY JSON THIS IS PYTHON NOT JAVASCRIPT
+The format of the required object is: 
 
 {
 	'data_source': string,
