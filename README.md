@@ -3,7 +3,7 @@
 
 Baseball Data Center was created with the goal of making the data retrieval process for baseball statistics simple.
 
-The baseballdc library exposes one function to it's end user, the `get_data` function. By calling this function with the required parameter object, you can retrieve baseball statistics in a Pandas DataFrame to use in your Python project.
+The baseballdc library exposes one function to the end user, the `get_data` function. By calling this function with the required parameter object, you can retrieve baseball statistics in a Pandas DataFrame to use in your Python project.
 
 ## How to install baseballdc:
 
@@ -43,7 +43,7 @@ The `query_param` object is itself a dictionary, with two required values, and m
 
 The two required values are `scope`, and `table`.
 
-The `scope` of the data you can retreieve is one of three options: 
+The `scope` of the data you can retrieve is one of three options: 
 
 * 'INDIVIDUAL_PLAYER'
 * 'TEAM'
@@ -75,9 +75,9 @@ There are also optional values that can be included in `query_params`. These are
 
 
 ## Examples
-A few example requests you could make are:
+A few example requests you could make are below.
 
-Retrieve Shohei Ohtani's Player Value--Pitching table found [here](https://www.baseball-reference.com/players/o/ohtansh01.shtml#pitching_value) on Baseball Reference:
+Retrieve Shohei Ohtani's Player Value--Pitching table, found [here](https://www.baseball-reference.com/players/o/ohtansh01.shtml#pitching_value) on Baseball Reference:
 
 ```python
 {
@@ -91,7 +91,7 @@ Retrieve Shohei Ohtani's Player Value--Pitching table found [here](https://www.b
 }
 ```
 
-Retrieve Juan Soto's Advanced Batting table found [here](https://www.baseball-reference.com/players/s/sotoju01.shtml#batting_advanced) on Baseball Reference:
+Retrieve Juan Soto's Advanced Batting table, found [here](https://www.baseball-reference.com/players/s/sotoju01.shtml#batting_advanced) on Baseball Reference:
 
 ```python
 {
@@ -105,7 +105,7 @@ Retrieve Juan Soto's Advanced Batting table found [here](https://www.baseball-re
 }
 ```
 
-Retrieve the Detroit Tigers 2021 Team Pitching table found [here](https://www.baseball-reference.com/teams/DET/2021.shtml#team_pitching) on Baseball Reference:
+Retrieve the Detroit Tigers 2021 Team Pitching table, found [here](https://www.baseball-reference.com/teams/DET/2021.shtml#team_pitching) on Baseball Reference:
 
 ```python
 {
@@ -119,7 +119,7 @@ Retrieve the Detroit Tigers 2021 Team Pitching table found [here](https://www.ba
 }
 ```
 
-Retrieve the National League's Team Standard Batting table for the 2021 season found [here](https://www.baseball-reference.com/leagues/NL/2021.shtml#teams_standard_batting) on Baseball Reference:
+Retrieve the National League's Team Standard Batting table for the 2021 season, found [here](https://www.baseball-reference.com/leagues/NL/2021.shtml#teams_standard_batting) on Baseball Reference:
 ```python
 {
             'data_source': 'BASEBALL_REFERENCE',
@@ -148,5 +148,5 @@ baseballdc_request = {
 	}
 }
 
-data = baseballdc.get_data(baseballdc_request)
+data_frame = baseballdc.get_data(baseballdc_request)
 ```
