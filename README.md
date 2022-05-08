@@ -31,30 +31,25 @@ The format of the dictionary that the `get_data` function requires is:
 }
 ```
 
-## How to configure the request dictionary:
+## How to Configure the Request Parameter:
 
-
-### 'data_source'
-
-baseballdc currently only scrapes data from Baseball Reference, so the data_source should be set to BASEBALL_REFERENCE
+baseballdc currently only scrapes data from Baseball Reference, so the `data_source` should be set to `'BASEBALL_REFERENCE'`.
 
 ```python
 'data_source': 'BASEBALL_REFERENCE',
 ```
-### 'query_params'
 
-The query params object is itself a dictionary, with two required values, and multiple optional values.
+The `query_param` object is itself a dictionary, with two required values, and multiple optional values.
 
-### 'query_params' - Required Values
-The two required values are the scope, and table.
+The two required values are `scope`, and `table`.
 
-The scope of the data you can retreieve is split into three categories. 
+The `scope` of the data you can retreieve is one of three options: 
 
-* INDIVIDUAL_PLAYER
-* TEAM
-* SEASON
+* 'INDIVIDUAL_PLAYER'
+* 'TEAM'
+* 'SEASON'
 
-The table is the name of the table on Baseball Reference
+The `table` is the name of the table on Baseball Reference
 
 For example the request: 
 
@@ -70,8 +65,7 @@ For example the request:
 
 will retrieve the Active Franchises table, that can be found [here](https://www.baseball-reference.com/teams/) on Baseball Reference. 
 
-### 'query_params' - Optional Values
-There are also optional values that can be passed into the query_params, to further specify which table you request. The list of accepted optional parameters are
+There are also optional values that can be included in `query_params`. These are used to further specify which table you are requesting. The list of accepted optional parameters are
 
 * first_name
 * last_name
@@ -83,50 +77,76 @@ There are also optional values that can be passed into the query_params, to furt
 ## Examples
 A few example requests you could make are:
 
-	
-	- Retrieve Shohei Otani's pitching stats table from Baseball Reference
+Retrieve Shohei Ohtani's Player Value--Pitching table found [here](https://www.baseball-reference.com/players/o/ohtansh01.shtml#pitching_value) on Baseball Reference:
 
 ```python
 {
-	'data_source': string,
-	'query_params': {
-		'scope': string,
-		'table': string
-	}
+        'data_source': 'BASEBALL_REFERENCE',
+        'query_params': {
+                'scope': 'INDIVIDUAL_PLAYER',
+                'table': 'Player Value--Pitching',
+                'first_name': 'Shohei',
+                'last_name': 'Ohtani'
+        }
 }
 ```
-	- Retrieve Juan Soto's batting stats from Baseball Reference
+
+Retrieve Juan Soto's Advanced Batting table found [here](https://www.baseball-reference.com/players/s/sotoju01.shtml#batting_advanced) on Baseball Reference:
 
 ```python
 {
-	'data_source': string,
-	'query_params': {
-		'scope': string,
-		'table': string
-	}
+        'data_source': 'BASEBALL_REFERENCE',
+        'query_params': {
+                'scope': 'INDIVIDUAL_PLAYER',
+                'table': 'Advanced Batting',
+                'first_name': 'Juan',
+                'last_name': 'Soto'
+        }
 }
 ```
 
-	- Retrieve the Detroit Tigers from 2021 from Baseball Reference
+Retrieve the Detroit Tigers 2021 Team Pitching table found [here](https://www.baseball-reference.com/teams/DET/2021.shtml#team_pitching) on Baseball Reference:
 
 ```python
 {
-	'data_source': string,
-	'query_params': {
-		'scope': string,
-		'table': string
-	}
+        'data_source': 'BASEBALL_REFERENCE',
+        'query_params': {
+                'scope': 'TEAM',
+                'table': 'Team Pitching',
+                'team': 'DET',
+                'year': '2021'
+        }
 }
 ```
 
-	- Retrieve the National League's standings for 2021 from Baseball Reference
+Retrieve the National League's Team Standard Batting table for the 2021 season found [here](https://www.baseball-reference.com/leagues/NL/2021.shtml#teams_standard_batting) on Baseball Reference:
 ```python
 {
-	'data_source': string,
-	'query_params': {
-		'scope': string,
-		'table': string
-	}
-}
+            'data_source': 'BASEBALL_REFERENCE',
+            'query_params': {
+                'scope': 'SEASON',
+                'table': 'Team Standard Batting',
+                'league': 'NL',
+                'year': '2021'
+            }
+        }
 ```
 
+
+## Putting It All Together
+
+```python
+import baseballdc
+
+baseballdc_request = {
+	'data_source': 'BASEBALL_REFERENCE',
+	'query_params': {
+                'scope': 'INDIVIDUAL_PLAYER',
+                'table': 'Standard Batting',
+                'first_name': 'Shohei',
+                'last_name': 'Ohtani'
+	}
+}
+
+data = baseballdc.get_data(baseballdc_request)
+```
