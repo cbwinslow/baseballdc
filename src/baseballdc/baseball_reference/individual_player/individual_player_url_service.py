@@ -17,7 +17,7 @@ def construct_url(table_config, query_params):
 
     url = f'{url_prefix}{player_href}'
 
-    print(f'url: {url}')
+    print(f'baseballdc url: {url}')
     return url
 
 def generate_name_required_error_message(query_params): 
