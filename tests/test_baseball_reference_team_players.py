@@ -6,7 +6,7 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + "/../src")
 import baseballdc
 import unittest
 
-class TestBaseballReferenceTeam2(unittest.TestCase):
+class TestBaseballReferenceTeamPlayers(unittest.TestCase):
 
     def test_player_standard_fielding_c(self):
 

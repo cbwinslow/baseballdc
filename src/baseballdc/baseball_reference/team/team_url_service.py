@@ -26,7 +26,7 @@ def construct_url(table_config, query_params):
 
     url = f'{url_prefix}{url_team}{url_year}{url_postfix}{shtml_postfix}'
 
-    print(f'url: {url}')
+    print(f'baseballdc url: {url}')
     return url
 
 def generate_team_required_error_message(query_params): 
